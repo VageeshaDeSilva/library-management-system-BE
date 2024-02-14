@@ -13,7 +13,11 @@ public class BookController {
     @Autowired
     BookService bookService;
     public void addBook(Book book){
-
         bookService.addBook(book);
+    }
+
+    public void removeBook(){
+        String id="  ";
+        bookService.removeBook(id);
     }
 }
