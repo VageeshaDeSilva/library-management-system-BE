@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface BookService {
     void addBook(Book book);
-    void removeBook(String bookId);
     List<BookEntity> getAllBooks();
+    boolean removeBook(Long id);
+
 }
