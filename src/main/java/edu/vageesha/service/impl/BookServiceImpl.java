@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -43,6 +44,12 @@ public class BookServiceImpl implements BookService {
         else{
             return false;
         }
+    }
+
+    @Override
+    public Book searchBookById(Long id) {
+        Optional<BookEntity> byId = bookRepository.findById(id);
+        return mapper.convertValue(byId,Book.class);
     }
 
 

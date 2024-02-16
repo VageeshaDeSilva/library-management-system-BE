@@ -9,5 +9,6 @@ public interface BookService {
     void addBook(Book book);
     List<BookEntity> getAllBooks();
     boolean removeBook(Long id);
+    Book searchBookById(Long id);
 
 }

@@ -15,7 +15,7 @@ public class BookController {
 
     final BookService bookService;
 
-    @PostMapping("/add")
+    @PostMapping("/addBook")
     @ResponseStatus(HttpStatus.CREATED)
     public void addBook(@RequestBody Book book){
         bookService.addBook(book);
@@ -27,9 +27,15 @@ public class BookController {
          return bookService.getAllBooks();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("deleteBook/{id}")
     @ResponseStatus(HttpStatus.GONE)
     public String removeBook(@PathVariable Long id){
         return bookService.removeBook(id)?"Deleted":"Not Deleted";
+    }
+
+    @GetMapping("searchBook/{id}")
+    @ResponseStatus(HttpStatus.FOUND)
+    public Book searchBookById(@PathVariable Long id){
+        return bookService.searchBookById(id);
     }
 }
